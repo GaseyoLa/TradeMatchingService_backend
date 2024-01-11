@@ -1,0 +1,17 @@
+spring:
+  ##mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gaseyola_db?serverTimezone=Asia/Seoul
+    username: root
+    password: hojun202!
+
+  ##JPA
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true
