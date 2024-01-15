@@ -49,6 +49,6 @@ public class OptionPost {
     @Column(name="dodge")
     private int dodge;
 
-    @OneToOne(mappedBy = "option_item")
-    private Item item;
+    @OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
+    private Post post;
 }
