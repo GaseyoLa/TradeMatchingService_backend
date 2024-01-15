@@ -59,7 +59,7 @@ public class OptionItem {
     @Column(name = "effects", length = 50)
     private String effects;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "option_item") //mappedBy??
+    @OneToOne(mappedBy = "option_item", fetch = FetchType.LAZY) //mappedBy??
     private Item item;
 
 }

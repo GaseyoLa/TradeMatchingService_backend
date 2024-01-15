@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Table(name = "post")
 public class Post {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
@@ -23,7 +24,7 @@ public class Post {
     private Item item;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //1대1 관계는 주인을 어디에 둬도 상관없다.
-    @JoinColumn(name = "optionpost_id")
+    @JoinColumn(name = "option_post_id")
     private OptionPost optionPost;
 
     @Column(name = "price", nullable = false)

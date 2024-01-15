@@ -18,7 +18,11 @@ public class Item {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "option_item_id", unique = true, nullable = false)
     private OptionItem optionItem;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "option_post_id", unique = true, nullable = false)
+    private OptionItem optionPost;
 }

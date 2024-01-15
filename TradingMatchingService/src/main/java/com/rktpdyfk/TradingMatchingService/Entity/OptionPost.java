@@ -7,9 +7,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "option_post")
 public class OptionPost {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "optionpost_id")
+    @Column(name = "option_post_id")
     private long id;
 
     @Column(name="weapon_attack")
@@ -47,4 +48,7 @@ public class OptionPost {
 
     @Column(name="dodge")
     private int dodge;
+
+    @OneToOne(mappedBy = "option_item")
+    private Item item;
 }
