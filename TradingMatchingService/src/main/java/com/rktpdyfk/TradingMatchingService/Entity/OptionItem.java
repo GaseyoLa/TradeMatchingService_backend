@@ -12,7 +12,7 @@ public class OptionItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "option_item_id")
-    private Long optionItemId;
+    private Long id;
 
     @Column(name = "job")
     private String job;
@@ -59,7 +59,7 @@ public class OptionItem {
     @Column(name = "effects", length = 50)
     private String effects;
 
-    @OneToOne(mappedBy = "option_item", fetch = FetchType.LAZY) //mappedBy??
+    @OneToOne(mappedBy = "optionItem", fetch = FetchType.LAZY) //mappedBy??
     private Item item;
 
 }
