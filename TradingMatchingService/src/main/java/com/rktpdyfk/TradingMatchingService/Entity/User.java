@@ -7,9 +7,9 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
 @Getter
 @Setter
+@Table(name = "users") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -37,3 +37,4 @@ public class User {
     private LocalDateTime date;
 
 }
+
