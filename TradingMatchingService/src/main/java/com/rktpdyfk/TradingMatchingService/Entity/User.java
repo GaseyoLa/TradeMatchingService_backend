@@ -2,13 +2,12 @@ package com.rktpdyfk.TradingMatchingService.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
 @Getter
 @Setter
 public class User {
