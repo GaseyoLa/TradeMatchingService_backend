@@ -1,10 +1,14 @@
 spring:
+
+ #ansi 터미널 유색컬러 설정
   output:
     ansi:
       enabled: ALWAYS
+
   h2:
     console:
       enabled: true
+
   datasource:
     url:  jdbc:h2:tcp://localhost/~/test;
     username: sa
@@ -13,8 +17,22 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create #none? ?? ???? ??? ??.
+      ddl-auto: create-drop #none? ?? ???? ??? ??.
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+logging:
+  level:
+    me.gaseyola: DEBUG
+
+jwt:
+  header: Autorization
+  secret: 3VrVnXL7NcSZRBgA4jstoOONP9gLUEahcq366bnmKiQ5wPUfCxgax46rVagme6FM #64바이트 HA512가능
+  #https://randomkeygen.com/
+  token-validity-seconds: 86400
