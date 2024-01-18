@@ -27,9 +27,7 @@ spring:
   sql:
     init:
       mode: always
-logging:
-  level:
-    me.gaseyola: DEBUG
+#logging:level:org:springframework: DEBUG
 
 jwt:
   header: Autorization

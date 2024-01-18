@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @GetMapping("/hello")
     public ResponseEntity<String> hello(){
+        System.out.println("This message will be printed to the console.");
         return ResponseEntity.ok("hello");
     }
 }

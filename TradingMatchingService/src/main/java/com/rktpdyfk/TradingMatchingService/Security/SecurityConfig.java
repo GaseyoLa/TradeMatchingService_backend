@@ -1,9 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.Security;
 
-import com.rktpdyfk.TradingMatchingService.jwt.JwtAccessDeniedHandler;
-import com.rktpdyfk.TradingMatchingService.jwt.JwtAuthenticationEntryPoint;
-import com.rktpdyfk.TradingMatchingService.jwt.JwtSecurityConfig;
-import com.rktpdyfk.TradingMatchingService.jwt.TokenProvider;
+import com.rktpdyfk.TradingMatchingService.jwt.*;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +13,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.CorsFilter;
 
 //이곳에 jwt 클래스를 적용시킴
 @Configuration
@@ -23,16 +22,18 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity //
 public class SecurityConfig {
     private final TokenProvider tokenProvider;
+    private final CorsFilter corsFilter;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     //jwt 3개 클래스를 주입받음
     public SecurityConfig(
-            TokenProvider tokenProvider,
+            TokenProvider tokenProvider, CorsFilter corsFilter,
             JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint,
             JwtAccessDeniedHandler jwtAccessDeniedHandler
     ) {
         this.tokenProvider = tokenProvider;
+        this.corsFilter = corsFilter;
         this.jwtAuthenticationEntryPoint = jwtAuthenticationEntryPoint;
         this.jwtAccessDeniedHandler = jwtAccessDeniedHandler;
     }
@@ -51,6 +52,7 @@ public class SecurityConfig {
                 // token을 사용하는 방식이기 때문에 csrf를 disable합니다.
                 //corsfilter
                 .csrf(AbstractHttpConfigurer::disable)
+                .addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandling->exceptionHandling
                         .accessDeniedHandler(jwtAccessDeniedHandler)
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
