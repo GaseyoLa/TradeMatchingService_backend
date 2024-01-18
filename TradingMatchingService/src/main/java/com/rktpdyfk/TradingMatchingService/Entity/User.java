@@ -23,8 +23,8 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "login_id", nullable = false)
-    private String loginId;
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @JsonIgnore
     @Column(name = "password", nullable = false)
@@ -52,6 +52,4 @@ public class User {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
-
 }
-

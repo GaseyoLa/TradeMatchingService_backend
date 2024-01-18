@@ -29,6 +29,7 @@ public class TokenProvider implements InitializingBean {
     private final String secret;
     private final long tokenValidityInMilliseconds;
     private Key key;
+    //
 
     //yaml에서 설정한 시크릿값 가져옴
     public TokenProvider(
@@ -43,23 +44,25 @@ public class TokenProvider implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         byte[] keyBytes = Decoders.BASE64.decode((secret));
         this.key = Keys.hmacShaKeyFor(keyBytes);
+        logger.info("Initialized TokenProvider with secret: {}", secret);
     }
 
     //Authentication 객체의 권한 정보를 이용해 토큰을 생성
     public String createToken(Authentication authentication){
         //권한들
-        String autorities = authentication.getAuthorities().stream()
+        String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
         //yaml에서 설정한 토큰 만료시간값으로 설정
         long now = (new Date()).getTime();
         Date validity = new Date(now + this.tokenValidityInMilliseconds);
-
+        //
+        logger.info("Created JWT token for user: {}", authentication.getName());
         //jwt 토큰을 생성해서 리턴
         return Jwts.builder()
                 .setSubject(authentication.getName())
-                .claim(AUTHORITIES_KEY, autorities)
+                .claim(AUTHORITIES_KEY, authorities)
                 .signWith(key, SignatureAlgorithm.HS512)
                 .setExpiration(validity)
                 .compact();
@@ -85,6 +88,8 @@ public class TokenProvider implements InitializingBean {
         //이를 이용해 user 객체 생성
         User principal = new User(claims.getSubject(), "", authorities);
 
+        //
+        logger.info("Extracted authorities from JWT token for user: {}", principal.getUsername());
         //최종적으로 Authentication 객체를 리턴
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
@@ -94,6 +99,7 @@ public class TokenProvider implements InitializingBean {
         try {
             //토큰을 파싱해보고
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
+            logger.info("Validated JWT token");
             return true; //익셉션 발생X 정상일때
         } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             logger.info("잘못된 JWT 서명입니다.");
