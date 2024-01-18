@@ -33,6 +33,6 @@ logging:
 
 jwt:
   header: Autorization
-  secret: 3VrVnXL7NcSZRBgA4jstoOONP9gLUEahcq366bnmKiQ5wPUfCxgax46rVagme6FM #64바이트 HA512가능
+  secret: 3VrVnXL7NcSZRBgA4jstoOONP9gLUEahcq366bnmKiQ5wPUfCxgax46rVagme6FM
   #https://randomkeygen.com/
-  token-validity-seconds: 86400
+  token-validity-in-seconds: 86400
