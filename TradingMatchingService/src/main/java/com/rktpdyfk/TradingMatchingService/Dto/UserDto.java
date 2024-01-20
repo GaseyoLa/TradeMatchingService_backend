@@ -34,6 +34,12 @@ public class UserDto {
    @Size(min = 3, max = 50)
    private String email;
 
+   @Size(min = 3, max = 50)
+   private String discordId;
+
+   @Size(min = 3, max = 50)
+   private String worldsId;
+
    private Set<AuthorityDto> authorityDtoSet;
 
    public static UserDto from(User user) {
@@ -43,6 +49,8 @@ public class UserDto {
               .username(user.getUsername())
               .nickname(user.getNickname())
               .email(user.getEmail())
+              .discordId(user.getDiscordId())
+              .worldsId(user.getWorldsId())
               .authorityDtoSet(user.getAuthorities().stream()
                       .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
                       .collect(Collectors.toSet()))
