@@ -2,26 +2,22 @@ package com.rktpdyfk.TradingMatchingService.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Getter
 @Setter
+@Builder
 @Table(name = "users") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
-    @Column(name = "nickname", nullable = false)
-    private String nickname;
-
-    @Column(name = "email", nullable = false)
-    private String email;
 
     @Column(name = "username", nullable = false)
     private String username;
@@ -30,6 +26,12 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "email", nullable = true)
+    private String email;
+
+    @Column(name = "nickname", nullable = false)
+    private String nickname;
+
     @Column(name = "discord_id")
     private String discordId;
 
@@ -37,7 +39,7 @@ public class User {
     private String worldsId;
 
     @Column(name = "star", nullable = true)//
-    private long star;
+    private Long star;
 
     @Column(name = "date", nullable = true)//
     private LocalDateTime date;
