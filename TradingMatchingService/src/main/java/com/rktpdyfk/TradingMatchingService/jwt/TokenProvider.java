@@ -31,7 +31,7 @@ public class TokenProvider implements InitializingBean {
     private Key key;
     //
 
-    //yaml에서 설정한 시크릿값 가져옴
+    //yml에서 설정한 시크릿값 가져옴
     public TokenProvider(
         @Value("${jwt.secret}") String secret,
         @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds) {
@@ -49,7 +49,7 @@ public class TokenProvider implements InitializingBean {
 
     //Authentication 객체의 권한 정보를 이용해 토큰을 생성
     public String createToken(Authentication authentication){
-        //권한들
+        //권한들 뽑아오기
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
@@ -60,15 +60,15 @@ public class TokenProvider implements InitializingBean {
         //
         logger.info("Created JWT token for user: {}", authentication.getName());
         //jwt 토큰을 생성해서 리턴
-        return Jwts.builder()
-                .setSubject(authentication.getName())
-                .claim(AUTHORITIES_KEY, authorities)
-                .signWith(key, SignatureAlgorithm.HS512)
-                .setExpiration(validity)
+        return Jwts.builder() //
+                .setSubject(authentication.getName())//아이디
+                .claim(AUTHORITIES_KEY, authorities)//권한
+                .signWith(key, SignatureAlgorithm.HS512)//알고리즘
+                .setExpiration(validity)//유효기간
                 .compact();
     }
 
-    //토큰을 매개변수로 받아서 Authentication 권한객체를 리턴
+    //토큰을 매개변수로 받아서 토큰에서 Authentication 권한객체를 가져옴.
     public Authentication getAuthentication(String token){
 
         //토큰을 이용해 claims 생성
