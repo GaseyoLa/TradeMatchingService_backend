@@ -37,7 +37,10 @@ public class UserService {
         User user = User.builder()
                 .username(userDto.getUsername())
                 .password(passwordEncoder.encode(userDto.getPassword()))
+                .email(userDto.getEmail())
                 .nickname(userDto.getNickname())
+                .discordId(userDto.getDiscordId())
+                .worldsId(userDto.getWorldsId())
                 .authorities(Collections.singleton(authority))
                 .activated(true)
                 .build();
