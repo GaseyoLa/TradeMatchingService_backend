@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "authority")
 @Getter
-@Setter
 @Builder
 public class Authority {
 

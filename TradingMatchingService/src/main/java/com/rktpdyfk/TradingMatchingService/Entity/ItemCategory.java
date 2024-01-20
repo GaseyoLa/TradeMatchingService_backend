@@ -3,12 +3,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Getter
-@Setter
 @Table(name = "item_category")
 public class ItemCategory {
 
