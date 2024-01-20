@@ -25,7 +25,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "email", nullable = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "nickname", nullable = false)
@@ -37,11 +37,11 @@ public class User {
     @Column(name = "worlds_id")
     private String worldsId;
 
-    @Column(name = "star", nullable = true)//
-    private Long star;
+    @Column(name = "star")//
+    private Long star = 0L;
 
-    @Column(name = "date", nullable = true)//
-    private LocalDateTime date;
+    @Column(name = "date")//
+    private LocalDateTime createDate;
 
     @JsonIgnore
     @Column(name = "activated")
@@ -53,4 +53,9 @@ public class User {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
+
+    @PrePersist
+    public void prePersist() {
+        createDate = LocalDateTime.now();
+    }
 }

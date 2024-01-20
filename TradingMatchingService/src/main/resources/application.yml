@@ -33,4 +33,4 @@ jwt:
   header: Autorization
   secret: 7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt
   #https://randomkeygen.com/
-  token-validity-in-seconds: 86400
+  token-validity-in-seconds: 21600
