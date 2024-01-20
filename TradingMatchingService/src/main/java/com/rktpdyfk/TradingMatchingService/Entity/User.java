@@ -38,6 +38,7 @@ public class User {
     private String worldsId;
 
     @Column(name = "star")//
+    @Builder.Default
     private Long star = 0L;
 
     @Column(name = "date")//
