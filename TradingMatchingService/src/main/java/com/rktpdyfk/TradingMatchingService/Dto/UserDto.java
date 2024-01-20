@@ -9,6 +9,7 @@ import lombok.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+//회원가입
 @Getter
 @Setter
 @Builder
