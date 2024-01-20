@@ -31,6 +31,6 @@ spring:
 
 jwt:
   header: Autorization
-  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+  secret: 7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt
   #https://randomkeygen.com/
   token-validity-in-seconds: 86400
