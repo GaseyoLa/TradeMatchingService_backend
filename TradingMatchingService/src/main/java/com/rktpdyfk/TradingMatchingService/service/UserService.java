@@ -23,9 +23,18 @@ public class UserService {
 
     @Transactional
     public UserDto signup(UserDto userDto) {
+
         //DB에 유저가 존재하면 에러출력
         if (userRepository.findOneWithAuthoritiesByUsername(userDto.getUsername()).orElse(null) != null) {
-            throw new RuntimeException("이미 가입되어 있는 유저입니다.");
+            throw new RuntimeException("이미 가입되어 있는 유저입니다. 아이디 중복");
+        }
+        //이메일 중복
+        if (userRepository.findOneByEmail(userDto.getEmail()).orElse(null) != null) {
+            throw new RuntimeException("이미 가입되어 있는 유저입니다. 이메일 중복");
+        }
+        //닉네임 중복
+        if (userRepository.findOneByNickname(userDto.getNickname()).orElse(null) != null) {
+            throw new RuntimeException("이미 가입되어 있는 유저입니다. 닉네임 중복");
         }
 
         //권한 정보 생성

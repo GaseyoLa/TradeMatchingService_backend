@@ -10,4 +10,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //Lazy조회가 아닌 Eager조회로 auth 정보를 같이 가져옴.
     @EntityGraph(attributePaths = "authorities")
     Optional<User> findOneWithAuthoritiesByUsername(String username);
+
+    Optional<User> findOneByEmail(String email);
+
+    Optional<User> findOneByNickname(String nickname);
 }
