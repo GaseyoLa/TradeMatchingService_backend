@@ -25,11 +25,6 @@ public class UserController {
         return ResponseEntity.ok("hello");
     }
 
-    @PostMapping("/test-redirect")
-    public void testRedirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/api/user");
-    }
-
     //UserDto를 파라미터로 받아서 UserService의 signup 메소드를 호출
     @PostMapping("/signup")
     public ResponseEntity<UserDto> signup(
@@ -37,7 +32,6 @@ public class UserController {
     ) {
         return ResponseEntity.ok(userService.signup(userDto));
     }
-
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')") //두가지 권한을 모두 허용
