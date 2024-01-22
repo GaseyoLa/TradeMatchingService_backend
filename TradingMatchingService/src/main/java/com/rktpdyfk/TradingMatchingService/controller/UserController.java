@@ -25,6 +25,12 @@ public class UserController {
         return ResponseEntity.ok("hello");
     }
 
+    //아이디 중복 조회
+    @GetMapping("/check_duplicate_id/{username}")
+    public  ResponseEntity<Boolean> checkDuplicateId(@PathVariable String username) {
+        return ResponseEntity.ok(userService.checkDuplicateId(username));
+    }
+
     //UserDto를 파라미터로 받아서 UserService의 signup 메소드를 호출
     @PostMapping("/signup")
     public ResponseEntity<UserDto> signup(

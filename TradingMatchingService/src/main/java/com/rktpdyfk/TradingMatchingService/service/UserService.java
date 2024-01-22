@@ -22,6 +22,11 @@ public class UserService {
     }
 
     @Transactional
+    public Boolean checkDuplicateId(String username){
+        return userRepository.existsByUsername(username);
+    }
+
+    @Transactional
     public UserDto signup(UserDto userDto) {
 
         //DB에 유저가 존재하면 에러출력
