@@ -14,9 +14,21 @@ import jakarta.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 public class EmailController {
-    private final EmailSendService mailService;
+    private final EmailSendService emailSendService;
     @PostMapping ("/mailSend")
-    public String mailSend(@RequestBody @Valid EmailRequestDto emailDto){
+    public String mailSend(@Valid @RequestBody EmailRequestDto emailDto){
+        System.out.println("이메일 인증 요청이 들어옴");
         System.out.println("이메일 인증 이메일 :"+emailDto.getEmail());
-        return mailService.joinEmail(emailDto.getEmail());
+        return emailSendService.joinEmail(emailDto.getEmail());
     }
+    @PostMapping("/mailauthCheck")
+    public String AuthCheck(@Valid @RequestBody EmailCheckDto emailCheckDto){
+        Boolean Checked=emailSendService.CheckAuthNum(emailCheckDto.getEmail(),emailCheckDto.getAuthNum());
+        if(Checked){
+            return "ok";
+        }
+        else{
+            throw new NullPointerException("뭔가 잘못!");
+        }
+    }
+}

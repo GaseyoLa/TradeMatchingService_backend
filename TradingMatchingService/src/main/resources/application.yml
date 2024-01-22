@@ -1,5 +1,9 @@
 spring:
-
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456789
  #ansi 터미널 유색컬러 설정
   output:
     ansi:
@@ -28,6 +32,8 @@ spring:
     init:
       mode: always
 #logging:level:org:springframework: DEBUG
+
+
 
 jwt:
   header: Autorization
