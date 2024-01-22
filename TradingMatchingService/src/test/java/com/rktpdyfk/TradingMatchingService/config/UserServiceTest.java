@@ -1,4 +1,4 @@
-package com.rktpdyfk.TradingMatchingService.security;
+package com.rktpdyfk.TradingMatchingService.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

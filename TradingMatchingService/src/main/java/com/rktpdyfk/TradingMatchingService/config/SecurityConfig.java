@@ -1,4 +1,4 @@
-package com.rktpdyfk.TradingMatchingService.security;
+package com.rktpdyfk.TradingMatchingService.config;
 
 import com.rktpdyfk.TradingMatchingService.jwt.*;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
