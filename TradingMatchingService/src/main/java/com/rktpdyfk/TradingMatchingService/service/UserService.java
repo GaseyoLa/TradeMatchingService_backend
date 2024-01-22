@@ -1,8 +1,8 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
+import com.rktpdyfk.TradingMatchingService.dto.UserDto;
 import com.rktpdyfk.TradingMatchingService.entity.Authority;
 import com.rktpdyfk.TradingMatchingService.entity.User;
-import com.rktpdyfk.TradingMatchingService.dto.UserDto;
 import com.rktpdyfk.TradingMatchingService.repository.UserRepository;
 import com.rktpdyfk.TradingMatchingService.util.SecurityUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;

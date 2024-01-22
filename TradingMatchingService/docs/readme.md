@@ -2,7 +2,7 @@
 
 ## 🚀 기능 요구 사항
 
-- [x] JWT Base 코드 작성 - jwt#* -jwt#TokenProvider()
+- [x] JWT Base 코드 작성 - jwt#* - jwt#TokenProvider()
 - 로그인에 필요한 로직 구현
 - 회원가입에 필요한 로직 구현
   - 중복확인, 이메일 인증 로직
