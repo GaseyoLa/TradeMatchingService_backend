@@ -1,14 +1,19 @@
-package com.rktpdyfk.TradingMatchingService.security;
+package com.rktpdyfk.TradingMatchingService.service;
 
 import com.rktpdyfk.TradingMatchingService.dto.UserDto;
+import com.rktpdyfk.TradingMatchingService.dto.UserDuplicateDto;
 import com.rktpdyfk.TradingMatchingService.entity.Authority;
 import com.rktpdyfk.TradingMatchingService.repository.UserRepository;
 import com.rktpdyfk.TradingMatchingService.service.UserService;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,11 +22,6 @@ public class UserServiceTest {
     @Autowired UserRepository userRepository;
     @Autowired PasswordEncoder passwordEncoder;
     @Autowired UserService userService;
-
-    //    @BeforeEach
-//    public void beforeEach(){
-//        userService = new UserService(userRepository, passwordEncoder);
-//    }
 
     @Test
     public void 암호_인코딩_테스트(){
@@ -37,7 +37,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void 회원가입_아이디_중복_테스트(){
+    public void signup_아이디_중복_테스트(){
 
         //given
         Authority authority = Authority.builder().authorityName("ROLE_USER").build();
@@ -47,12 +47,22 @@ public class UserServiceTest {
 
         // when
         userService.signup(userDto_one);
-        //userService.signup(userDto_two);
         RuntimeException e = assertThrows(RuntimeException.class, () ->
             userService.signup(userDto_two));
 
         // then
         assertThat(e.getMessage()).isEqualTo("이미 가입되어 있는 유저입니다. 아이디 중복");
-        }
-
     }
+
+    @Test
+    public void 회원가입시_중복체크_테스트(){
+
+        UserDuplicateDto user_real = new UserDuplicateDto("user","user","user@email.com");
+
+        Map<String,Boolean> result = userService.checkDuplicate(user_real);
+
+        // Assertions.assertThat(result).isEqualTo("");
+        // Check that all values in the map are false
+        Assertions.assertThat(result.values()).allMatch(value -> value);
+    }
+}

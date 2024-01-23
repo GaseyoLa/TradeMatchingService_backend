@@ -5,7 +5,7 @@
 - [x] JWT Base 코드 작성 - jwt#* - jwt#TokenProvider()
 - 로그인에 필요한 로직 구현
 - 회원가입에 필요한 로직 구현
-  - 아이디 조회 중복 get/api User#checkDuplicateId()
+  - [x] 아이디 조회 중복 get/api User#checkDuplicateId()
   - 이메일 조회 중복 get/api
   - 이메일 인증 요청 post/emailVerificationRequest?
   - 인증번호 검증 요청 post/verificationEmail ?
@@ -16,7 +16,7 @@
 - 게시물 오퍼를 중계해줍니다.
 - 사용자간 채팅 기능.
 - 거래가 완료된 사용자간에 평점을 새깁니다.
-- [x] DB 구축: 데이터베이스를 생성하고, 필요한 테이블들을 정의합니다. -entity
+- [x] DB 구축: 데이터베이스를 생성하고, 필요한 테이블들을 정의합니다. -entity#*
 
 ## 👀 서비스 구조
 

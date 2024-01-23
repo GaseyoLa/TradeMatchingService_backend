@@ -54,7 +54,12 @@ public class SecurityConfig {
                 )
                 //api 허가
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/hello","/api/authenticate","/api/signup").permitAll()
+                        .requestMatchers(
+                                "/api/hello",
+                                "/api/authenticate",
+                                "/api/signup",
+                                "/api/check_duplicate"
+                        ).permitAll()
                         .requestMatchers(PathRequest.toH2Console()).permitAll() //h2 콘솔 허가
                         .anyRequest().authenticated()
                 )
