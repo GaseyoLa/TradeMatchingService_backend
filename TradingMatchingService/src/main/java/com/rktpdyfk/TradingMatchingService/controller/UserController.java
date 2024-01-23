@@ -1,6 +1,7 @@
 package com.rktpdyfk.TradingMatchingService.controller;
 
 import com.rktpdyfk.TradingMatchingService.dto.UserDto;
+import com.rktpdyfk.TradingMatchingService.dto.UserDuplicateDto;
 import com.rktpdyfk.TradingMatchingService.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -26,9 +28,10 @@ public class UserController {
     }
 
     //아이디 중복 조회
-    @GetMapping("/check_duplicate_id/{username}")
-    public  ResponseEntity<Boolean> checkDuplicateId(@PathVariable String username) {
-        return ResponseEntity.ok(userService.checkDuplicateId(username));
+    @PostMapping("/check_duplicate")
+    public  ResponseEntity<Map<String,Boolean>> checkDuplicate(
+            @Valid @RequestBody UserDuplicateDto userDuplicateDto) {
+        return ResponseEntity.ok(userService.checkDuplicate(userDuplicateDto));
     }
 
     //UserDto를 파라미터로 받아서 UserService의 signup 메소드를 호출
