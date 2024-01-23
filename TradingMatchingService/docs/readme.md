@@ -5,8 +5,8 @@
 - [x] JWT Base 코드 작성 - jwt#* - jwt#TokenProvider()
 - 로그인에 필요한 로직 구현
 - 회원가입에 필요한 로직 구현
-  - [x] 아이디 조회 중복 get/api User#checkDuplicateId()
-  - 이메일 조회 중복 get/api
+  - [x] 아이디 조회 중복 get/api User#checkDuplicate()
+  - [x] 이메일 조회 중복 get/api ""
   - 이메일 인증 요청 post/emailVerificationRequest?
   - 인증번호 검증 요청 post/verificationEmail ?
   - 회원가입 승인 post/sign up - User#signup()
