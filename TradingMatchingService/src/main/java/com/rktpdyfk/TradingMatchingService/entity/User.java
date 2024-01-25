@@ -55,4 +55,8 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
 
+    @PrePersist
+    public void prePersist() {
+        createDate = LocalDateTime.now();
+    }
 }
