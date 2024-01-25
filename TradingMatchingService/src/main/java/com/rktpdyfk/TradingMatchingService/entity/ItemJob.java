@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Getter
-@Table(name = "item_category")
-public class ItemCategory {
+@Table(name = "item_job")
+public class ItemJob {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_category_id")
+    @Column(name = "item_job_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", insertable = false, updatable = false, nullable = false)
-    private Category category;
+    @JoinColumn(name = "job_id", insertable = false, updatable = false, nullable = false)
+    private Job job;
 
     @ManyToOne
-    @JoinColumn(name = "Item_id", insertable = false, updatable = false, nullable = false)
+    @JoinColumn(name = "item_id", insertable = false, updatable = false, nullable = false)
     private Item item;
 
 }
