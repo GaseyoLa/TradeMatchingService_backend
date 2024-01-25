@@ -30,7 +30,7 @@ spring:
 #logging:level:org:springframework: DEBUG
 
 jwt:
-  header: Autorization
+  header: Authorization
   secret: 7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt
   #https://randomkeygen.com/
   token-validity-in-seconds: 21600
