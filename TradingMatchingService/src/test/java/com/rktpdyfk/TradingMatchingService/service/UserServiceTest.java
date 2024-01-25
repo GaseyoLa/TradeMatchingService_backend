@@ -27,7 +27,7 @@ public class UserServiceTest {
     public void 암호_인코딩_테스트(){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        String rawPassword = "admin1234";
+        String rawPassword = "user1234";
         String encodedPassword = passwordEncoder.encode(rawPassword);
 
         assertNotNull(encodedPassword);
