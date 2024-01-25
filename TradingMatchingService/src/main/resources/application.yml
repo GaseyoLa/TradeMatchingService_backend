@@ -26,6 +26,7 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
+      encoding: utf-8
       mode: always
 #logging:level:org:springframework: DEBUG
 

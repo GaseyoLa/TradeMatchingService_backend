@@ -7,3 +7,16 @@ insert into authority (authority_name) values ('ROLE_ADMIN');
 insert into user_authority (user_id, authority_name) values (1, 'ROLE_USER');
 insert into user_authority (user_id, authority_name) values (1, 'ROLE_ADMIN');
 insert into user_authority (user_id, authority_name) values (2, 'ROLE_USER');
+
+
+insert into option_item (attack_speed, magic_attack, required_level, required_stat, sells_for, upgrade_slots, weapon_attack) values (5, 15, 0, '0', 1, 7, 15);
+insert into option_item (attack_speed, required_level, required_stat, sells_for, upgrade_slots, weapon_attack) values (5, 35, 'STR 110', 40000, 7, 52);
+insert into option_item (attack_speed, required_level, required_stat, sells_for, upgrade_slots, weapon_attack, effects) values (4, 35, '0', 1, 7, 48, '이동속도+15');
+insert into option_item (attack_speed, magic_attack, required_level, required_stat, sells_for, upgrade_slots, weapon_attack) values (5, 52, 40, '0', 50000, 7, 52);
+insert into option_item (attack_speed, required_level, required_stat, sells_for, upgrade_slots, weapon_attack) values (5, 40, 'STR 125', 90000, 7, 57);
+
+insert into items (option_item_id, name) values (1,'하늘색 우산');
+insert into items (option_item_id, name) values (2,'커틀러스');
+insert into items (option_item_id, name) values (3,'붉은 채찍');
+insert into items (option_item_id, name) values (4,'노란색 우산');
+insert into items (option_item_id, name) values (5,'트라우스');

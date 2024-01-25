@@ -28,7 +28,7 @@ public class OptionItem {
     private Integer requiredLevel;
 
     @Column(name = "required_stat")
-    private Integer requiredStat;
+    private String requiredStat;
 
     @Column(name = "attack_speed")
     private Integer attackSpeed;
