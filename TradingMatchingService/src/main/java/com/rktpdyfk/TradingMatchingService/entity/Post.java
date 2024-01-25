@@ -35,5 +35,10 @@ public class Post {
     private int price;
 
     @Column(name = "date", nullable = false)
-    private LocalDateTime date;
+    private LocalDateTime createDate;
+
+    @PrePersist
+    public void prePersist() {
+        createDate = LocalDateTime.now();
+    }
 }

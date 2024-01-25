@@ -22,7 +22,41 @@ public class Category {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "info")
-    private String info;
+    @Column(name="weapon_attack")
+    private boolean weaponAttack;
+
+    @Column(name="magic_attack")
+    private boolean magicAttack;
+
+    @Column(name="upgrade_slots")
+    private boolean upgradeSlots;
+
+    @Column(name="str")
+    private boolean str;
+
+    @Column(name="dex")
+    private boolean dex;
+
+    @Column(name="int")
+    private boolean intell;
+
+    @Column(name="luk")
+    private boolean luk;
+
+    @Column(name="weapon_def")
+    private boolean weaponDef;
+
+    @Column(name="magic_def")
+    private boolean magicDef;
+
+    @Column(name="speed")
+    private boolean speed;
+
+    @Column(name="jump")
+    private boolean jump;
+
+    @Column(name="dodge")
+    private boolean dodge;
+
 
 }
