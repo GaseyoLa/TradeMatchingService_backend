@@ -1,7 +1,7 @@
 package com.rktpdyfk.TradingMatchingService.repository;
 
-import com.rktpdyfk.TradingMatchingService.entity.Category;
+import com.rktpdyfk.TradingMatchingService.entity.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends JpaRepository<Job, Long> {
 }

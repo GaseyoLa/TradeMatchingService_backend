@@ -2,6 +2,7 @@ package com.rktpdyfk.TradingMatchingService.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Getter
+@Builder
 @Table(name = "posts")
 public class Post {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
