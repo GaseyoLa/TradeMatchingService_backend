@@ -22,40 +22,40 @@ public class Category {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name="weapon_attack")
+    @Column(name="weapon_attack", columnDefinition = "boolean default false")
     private boolean weaponAttack;
 
-    @Column(name="magic_attack")
+    @Column(name="magic_attack", columnDefinition = "boolean default false")
     private boolean magicAttack;
 
-    @Column(name="upgrade_slots")
+    @Column(name="upgrade_slots", columnDefinition = "boolean default false")
     private boolean upgradeSlots;
 
-    @Column(name="str")
+    @Column(name="str", columnDefinition = "boolean default false")
     private boolean str;
 
-    @Column(name="dex")
+    @Column(name="dex", columnDefinition = "boolean default false")
     private boolean dex;
 
-    @Column(name="int")
+    @Column(name="int", columnDefinition = "boolean default false")
     private boolean intell;
 
-    @Column(name="luk")
+    @Column(name="luk", columnDefinition = "boolean default false")
     private boolean luk;
 
-    @Column(name="weapon_def")
+    @Column(name="weapon_def", columnDefinition = "boolean default false")
     private boolean weaponDef;
 
-    @Column(name="magic_def")
+    @Column(name="magic_def", columnDefinition = "boolean default false")
     private boolean magicDef;
 
-    @Column(name="speed")
+    @Column(name="speed", columnDefinition = "boolean default false")
     private boolean speed;
 
-    @Column(name="jump")
+    @Column(name="jump", columnDefinition = "boolean default false")
     private boolean jump;
 
-    @Column(name="dodge")
+    @Column(name="dodge", columnDefinition = "boolean default false")
     private boolean dodge;
 
 
