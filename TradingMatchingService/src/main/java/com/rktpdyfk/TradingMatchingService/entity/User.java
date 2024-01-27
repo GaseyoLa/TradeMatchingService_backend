@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor //
@@ -47,6 +49,9 @@ public class User {
     @JsonIgnore
     @Column(name = "activated")
     private boolean activated;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(

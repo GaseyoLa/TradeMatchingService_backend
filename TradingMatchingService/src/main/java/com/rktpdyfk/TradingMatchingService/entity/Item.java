@@ -5,6 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -28,4 +32,10 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "category_id", insertable = false, updatable = false, nullable = true)
     private Category category;
+
+    @OneToMany(mappedBy = "item")
+    private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "item")
+    private List<ItemJob> itemJobs = new ArrayList<>();
 }

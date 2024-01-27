@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -19,4 +23,6 @@ public class Job {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "job")
+    private List<ItemJob> itemJobs = new ArrayList<>();
 }
