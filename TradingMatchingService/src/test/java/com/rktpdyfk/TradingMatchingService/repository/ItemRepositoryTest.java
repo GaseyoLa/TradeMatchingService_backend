@@ -1,5 +1,6 @@
     package com.rktpdyfk.TradingMatchingService.repository;
 
+import com.rktpdyfk.TradingMatchingService.entity.Category;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,11 @@ class ItemRepositoryTest {
 
     @Test
     public void 쿼리문_테스트_1(){
+        //아이템 이름으로 카테고리 가져오기.
+        Optional<Category> category = itemRepository.findCategoryByItemName("하늘색 우산");
 
-        Optional<Item> item = itemRepository.findItemByName("하늘색 우산");
-
-        assertThat(item.get()).isEqualTo("");
+        assertThat(category.get().isWeaponAttack()).isEqualTo(true);
+        assertThat(category.get().isWeaponDef()).isEqualTo(false);
 
     }
 }
