@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -57,6 +60,9 @@ public class Category {
 
     @Column(name="dodge", columnDefinition = "boolean default false")
     private boolean dodge;
+
+    @OneToMany(mappedBy = "category")
+    private List<Category> categories = new ArrayList<>();
 
 
 }
