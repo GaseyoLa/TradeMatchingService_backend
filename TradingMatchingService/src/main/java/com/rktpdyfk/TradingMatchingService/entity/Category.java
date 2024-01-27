@@ -62,7 +62,7 @@ public class Category {
     private boolean dodge;
 
     @OneToMany(mappedBy = "category")
-    private List<Category> categories = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
 
 }
