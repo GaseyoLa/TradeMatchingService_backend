@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Getter
-@Builder
 @Table(name = "category")
 public class Category {
 
@@ -62,7 +61,6 @@ public class Category {
     private boolean dodge;
 
     @OneToMany(mappedBy = "category")
-    private List<Item> items = new ArrayList<>();
-
+    private List<Item> items;
 
 }

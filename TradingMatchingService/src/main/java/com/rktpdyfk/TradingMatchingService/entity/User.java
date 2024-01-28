@@ -51,7 +51,7 @@ public class User {
     private boolean activated;
 
     @OneToMany(mappedBy = "user")
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> posts;
 
     @ManyToMany
     @JoinTable(
