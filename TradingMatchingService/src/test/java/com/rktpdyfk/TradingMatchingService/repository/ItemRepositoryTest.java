@@ -15,11 +15,10 @@ class ItemRepositoryTest {
 
     @Test
     public void 쿼리문_테스트_1(){
-        //아이템 이름으로 카테고리 가져오기.
+
         Optional<Category> category = itemRepository.findCategoryByItemName("하늘색 우산");
 
         assertThat(category.get().isWeaponAttack()).isEqualTo(true);
         assertThat(category.get().isWeaponDef()).isEqualTo(false);
-
     }
 }
