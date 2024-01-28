@@ -34,8 +34,8 @@ public class Item {
     private Category category;
 
     @OneToMany(mappedBy = "item")
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> posts;
 
     @OneToMany(mappedBy = "item")
-    private List<ItemJob> itemJobs = new ArrayList<>();
+    private List<ItemJob> itemJobs;
 }
