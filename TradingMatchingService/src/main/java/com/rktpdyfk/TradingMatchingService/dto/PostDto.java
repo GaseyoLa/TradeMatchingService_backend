@@ -10,6 +10,7 @@ public class PostDto {
         private OptionPost optionPost;
         private int price;
 
+        //DTO -> Entity
         public Post to_Entity() {
             return Post.builder()
                     .item(item)

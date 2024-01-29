@@ -1,10 +1,7 @@
 package com.rktpdyfk.TradingMatchingService.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Getter
+@Setter
 @Builder
 @Table(name = "posts")
 public class Post {

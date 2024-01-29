@@ -29,7 +29,7 @@ public class UserController {
 
     //아이디 중복 조회
     @PostMapping("/check_duplicate")
-    public  ResponseEntity<Map<String,Boolean>> checkDuplicate(
+    public ResponseEntity<Map<String,Boolean>> checkDuplicate(
             @Valid @RequestBody UserDuplicateDto userDuplicateDto) {
         return ResponseEntity.ok(userService.checkDuplicate(userDuplicateDto));
     }
