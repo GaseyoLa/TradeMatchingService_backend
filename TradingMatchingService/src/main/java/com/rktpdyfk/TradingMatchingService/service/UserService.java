@@ -32,7 +32,7 @@ public class UserService {
         Map<String, Boolean> duplicateStatus = new HashMap<>();
 
         // Check duplicate username
-        duplicateStatus.put("username", userRepository.findOneWithAuthoritiesByUsername(userDto.getUsername()).isPresent());
+        duplicateStatus.put("username", userRepository.existsByUsername(userDto.getUsername()));
 
         // Check duplicate email
         duplicateStatus.put("email", userRepository.existsByEmail(userDto.getEmail()));
