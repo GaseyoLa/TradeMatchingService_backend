@@ -29,6 +29,11 @@ spring:
       encoding: utf-8
       mode: always
 #logging:level:org:springframework: DEBUG
+#  main:
+#      allow-bean-definition-overriding: true
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9200
 
 jwt:
   header: Authorization
