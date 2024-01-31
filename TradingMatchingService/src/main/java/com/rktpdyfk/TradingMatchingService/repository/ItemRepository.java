@@ -1,5 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.repository;
 
+import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.entity.Category;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,7 +13,12 @@ import java.util.Optional;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
+
     //아이템 이름으로 카테고리 객체 가져오기.
     @Query("SELECT i.category FROM Item i WHERE i.name = :itemName")
     Optional<Category> findCategoryByItemName(@Param("itemName") String itemName);
+
+    @Query("SELECT i FROM Item i WHERE i.name LIKE CONCAT('%',:keyword,'%')")
+    List<Item> findByKeyword(@Param("keyword") String keyword);
+
 }

@@ -54,15 +54,12 @@ public class SecurityConfig {
                 )
                 //api 허가
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers(
-                                "/api/hello",
-                                "/api/authenticate",
-                                "/api/signup",
-                                "/api/check_duplicate"
-                        ).permitAll()
+                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/admin/**","/user/**").authenticated()
                         .requestMatchers(PathRequest.toH2Console()).permitAll() //h2 콘솔 허가
                         .anyRequest().authenticated()
                 )
+
                 // 세션을 사용하지 않기 때문에 STATELESS로 설정
                 .sessionManagement(sessionManagement ->
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -1,10 +1,12 @@
 package com.rktpdyfk.TradingMatchingService.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Indexed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,9 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
-@Table(name = "items")
+@Table(name = "items",indexes = {
+        @Index(columnList = "name")
+})
 public class Item {
 
     @Id
@@ -22,7 +26,8 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
+    @Size(max=30)
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
