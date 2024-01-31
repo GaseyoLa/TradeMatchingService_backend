@@ -26,8 +26,7 @@ public class Post {
     private Item item;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //1대1 관계는 주인을 어디에 둬도 상관없다.
-    @JoinColumn(name = "option_post_id")
-    private OptionPost optionPost;
+    @JoinColumn(name = "option_post_id")  OptionPost optionPost;
 
     @Column(name = "price", nullable = false)
     private int price;

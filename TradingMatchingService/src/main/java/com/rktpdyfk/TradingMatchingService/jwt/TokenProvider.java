@@ -127,9 +127,20 @@ public class TokenProvider implements InitializingBean {
 
         return null;
     }
-    //토큰에서 회원 정보 추출
+
+    //토큰의 Claim 디코딩
+    private Claims getAllClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
+    //토큰에서 회원 정보 추출 <-- 안되는거같음..
     public String getUsername(String token){
-        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        return claims.get("username", String.class);
+        String username = String.valueOf(getAllClaims(token).get("username"));
+        return username;
+//        Claims claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+//        return claims.get("username", String.class);
     }
 }

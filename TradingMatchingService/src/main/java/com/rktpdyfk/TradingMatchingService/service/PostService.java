@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.rktpdyfk.TradingMatchingService.dto.PostDto.*;
 @Service
@@ -22,10 +23,11 @@ public class PostService {
         return postList;
     }
 
-    public void createPost(String username, PostRequestDto postRequestDto){
+    public void createPost(Optional<String> username, PostRequestDto postRequestDto){
         User user = userRepository.findByUsername(username);
         Post post = postRequestDto.to_Entity();
         post.setUser(user);
+        System.out.println("User Object:" + user);
         postRepository.save(post);
     }
 
