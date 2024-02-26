@@ -13,4 +13,5 @@ public class TextSearchDto {
 
     private String name;
 
+    private String image;
 }

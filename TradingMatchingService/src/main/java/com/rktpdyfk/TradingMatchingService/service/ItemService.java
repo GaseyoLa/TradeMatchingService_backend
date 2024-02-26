@@ -22,6 +22,7 @@ public class ItemService {
                 .map(item -> TextSearchDto.builder()
                         .id(item.getId())
                         .name(item.getName())
+                        .image(item.getImage())
                         .build())
                 .collect(Collectors.toList());
         return result;

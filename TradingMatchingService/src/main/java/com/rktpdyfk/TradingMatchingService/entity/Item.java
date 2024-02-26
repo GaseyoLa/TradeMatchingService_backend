@@ -38,6 +38,9 @@ public class Item {
     @JoinColumn(name = "category_id", insertable = false, updatable = false, nullable = true)
     private Category category;
 
+    @Column(name = "image")
+    private String image;
+
     @OneToMany(mappedBy = "item")
     private List<Post> posts;
 
