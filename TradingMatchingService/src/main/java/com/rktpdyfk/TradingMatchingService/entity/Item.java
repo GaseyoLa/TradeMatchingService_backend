@@ -27,7 +27,7 @@ public class Item {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_name", insertable = false, updatable = false, nullable = true)
+    @JoinColumn(name = "category", insertable = false, updatable = false, nullable = true)
     private Category category;
 
     @OneToMany(mappedBy = "item")
@@ -76,8 +76,8 @@ public class Item {
     private int setCompleteCount;
     @Column(name = "overallCategory")
     private String overallCategory;
-    @Column(name = "category")
-    private String category_str;
+//    @Column(name = "category")
+//    private String category_str;
     @Column(name = "subCategory")
     private String subCategory;
     @Column(name = "lowItemId")
