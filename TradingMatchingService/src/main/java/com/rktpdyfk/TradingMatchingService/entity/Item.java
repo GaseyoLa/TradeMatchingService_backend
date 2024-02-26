@@ -30,10 +30,6 @@ public class Item {
     @Size(max=30)
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "option_item_id", unique = true, nullable = false)
-    private OptionItem optionItem;
-
     @ManyToOne
     @JoinColumn(name = "category_id", insertable = false, updatable = false, nullable = true)
     private Category category;

@@ -33,7 +33,6 @@ public class TokenProvider implements InitializingBean {
     private final String secret;
     private final long tokenValidityInMilliseconds;
     private Key key;
-    //
 
     //yml에서 설정한 시크릿값 가져옴
     public TokenProvider(
@@ -117,6 +116,7 @@ public class TokenProvider implements InitializingBean {
         return false; //문제 발생 시
     }
 
+    //Request Header에서 토큰 정보를 꺼내오기 위한 resolveToken 메소드
     public String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
 

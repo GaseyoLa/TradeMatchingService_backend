@@ -26,8 +26,9 @@ public class PostController {
     public ResponseEntity<?> uploadPost(HttpServletRequest httpServletRequest, @RequestBody PostRequestDto postRequestDto){
         //토큰 가져옴
         String accessToken = tokenProvider.resolveToken(httpServletRequest);
-        //토큰 유효성 검사
-        tokenProvider.validateToken(accessToken);
+        //토큰 유효성 검사 <-- 어차피 JWT를 거치면서 permit()해놓은 주소가 아니면 검증을 한다.
+        //tokenProvider.validateToken(accessToken);
+
         //Security Context에서 username 가져옴.
         Optional<String> userName = SecurityUtil.getCurrentUsername();
 
