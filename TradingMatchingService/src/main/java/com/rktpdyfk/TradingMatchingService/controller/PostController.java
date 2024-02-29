@@ -1,8 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.controller;
 
-import com.rktpdyfk.TradingMatchingService.entity.OptionPost;
 import com.rktpdyfk.TradingMatchingService.jwt.TokenProvider;
-import com.rktpdyfk.TradingMatchingService.service.OptionPostService;
 import com.rktpdyfk.TradingMatchingService.service.PostService;
 import com.rktpdyfk.TradingMatchingService.util.SecurityUtil;
 import jakarta.servlet.http.HttpServletRequest;
