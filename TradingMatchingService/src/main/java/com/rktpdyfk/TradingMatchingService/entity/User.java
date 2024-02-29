@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Builder
-@Table(name = "users") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
+@Table(name = "user") //h2 2.x 이상버전에서는 USER 키워드 사용이 금지
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

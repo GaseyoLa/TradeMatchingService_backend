@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
-@Table(name = "items",indexes = {
+@Table(name = "item",indexes = {
         @Index(columnList = "name_kr")
 })
 public class Item {
