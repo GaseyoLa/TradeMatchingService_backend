@@ -24,8 +24,8 @@ class ItemRepositoryTest {
 
         Optional<Category> category = itemRepository.findCategoryByItemName("하늘색 우산");
 
-        assertThat(category.get().isWeaponAttack()).isEqualTo(true);
-        assertThat(category.get().isWeaponDef()).isEqualTo(false);
+        assertThat(category.get().isIncPAD()).isEqualTo(true);
+        assertThat(category.get().isIncPDD()).isEqualTo(false);
     }
 
     @Test

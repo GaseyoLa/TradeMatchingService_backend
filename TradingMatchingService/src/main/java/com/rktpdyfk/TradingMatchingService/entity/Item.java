@@ -112,7 +112,7 @@ public class Item {
     private int incSpeed;
     @Column(name = "incJump")
     private int incJump;
-    @Column(name = "notSale")
+    @Column(name = "notMHP")
     private int incMHP;
     @Column(name = "incMMP")
     private int incMMP;
