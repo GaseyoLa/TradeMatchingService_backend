@@ -21,7 +21,7 @@ public class ItemService {
         List<TextSearchDto> result = items.stream()
                 .map(item -> TextSearchDto.builder()
                         .id(item.getId())
-                        .name(item.getName())
+                        .name(item.getNameKr())
                         .image(item.getImage())
                         .build())
                 .collect(Collectors.toList());

@@ -15,10 +15,6 @@ import java.util.List;
 @Getter
 @Table(name = "category")
 public class Category {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "category_id")
-//    private Long id;
 
     @Id
     @Column(name = "category_name", nullable = false)
@@ -59,8 +55,5 @@ public class Category {
 
     @Column(name="dodge", columnDefinition = "boolean default false")
     private boolean dodge;
-
-    @OneToMany(mappedBy = "category")
-    private List<Item> items;
 
 }
