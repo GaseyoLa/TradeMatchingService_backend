@@ -20,40 +20,52 @@ public class Category {
     @Column(name = "category_name", nullable = false)
     private String name;
 
-    @Column(name="weapon_attack", columnDefinition = "boolean default false")
-    private boolean weaponAttack;
+    @Column(name = "incSTR", columnDefinition = "boolean default false")
+    private boolean incSTR;
 
-    @Column(name="magic_attack", columnDefinition = "boolean default false")
-    private boolean magicAttack;
+    @Column(name = "incDEX", columnDefinition = "boolean default false")
+    private boolean incDEX;
 
-    @Column(name="upgrade_slots", columnDefinition = "boolean default false")
-    private boolean upgradeSlots;
+    @Column(name = "incINT", columnDefinition = "boolean default false")
+    private boolean incINT;
 
-    @Column(name="str", columnDefinition = "boolean default false")
-    private boolean str;
+    @Column(name = "incLUK", columnDefinition = "boolean default false")
+    private boolean incLUK;
 
-    @Column(name="dex", columnDefinition = "boolean default false")
-    private boolean dex;
+    @Column(name = "incPAD", columnDefinition = "boolean default false")
+    private boolean incPAD;
 
-    @Column(name="int", columnDefinition = "boolean default false")
-    private boolean intell;
+    @Column(name = "incPDD", columnDefinition = "boolean default false")
+    private boolean incPDD;
 
-    @Column(name="luk", columnDefinition = "boolean default false")
-    private boolean luk;
+    @Column(name = "incMAD", columnDefinition = "boolean default false")
+    private boolean incMAD;
 
-    @Column(name="weapon_def", columnDefinition = "boolean default false")
-    private boolean weaponDef;
+    @Column(name = "incMDD", columnDefinition = "boolean default false")
+    private boolean incMDD;
 
-    @Column(name="magic_def", columnDefinition = "boolean default false")
-    private boolean magicDef;
+    @Column(name = "incEVA", columnDefinition = "boolean default false")
+    private boolean incEVA;
 
-    @Column(name="speed", columnDefinition = "boolean default false")
-    private boolean speed;
+    @Column(name = "incACC", columnDefinition = "boolean default false")
+    private boolean incACC;
 
-    @Column(name="jump", columnDefinition = "boolean default false")
-    private boolean jump;
+    @Column(name = "tuc", columnDefinition = "boolean default false")
+    private boolean tuc;
 
-    @Column(name="dodge", columnDefinition = "boolean default false")
-    private boolean dodge;
+    @Column(name = "price", columnDefinition = "boolean default false")
+    private boolean price;
+
+    @Column(name = "incSpeed", columnDefinition = "boolean default false")
+    private boolean incSpeed;
+
+    @Column(name = "incJump", columnDefinition = "boolean default false")
+    private boolean incJump;
+
+    @Column(name = "incMHP", columnDefinition = "boolean default false")
+    private boolean incMHP;
+
+    @Column(name = "incMMP", columnDefinition = "boolean default false")
+    private boolean incMMP;
 
 }

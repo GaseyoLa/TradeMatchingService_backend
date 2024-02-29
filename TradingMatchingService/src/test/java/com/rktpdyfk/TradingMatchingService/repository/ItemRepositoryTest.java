@@ -34,7 +34,7 @@ class ItemRepositoryTest {
 
         org.junit.jupiter.api.Assertions.assertNotNull(items);
         Assertions.assertThat(items)
-                .extracting(Item::getName)
+                .extracting(Item::getNameKr)
                 .containsExactly("하늘색 우산","노란색 우산");
     }
 }

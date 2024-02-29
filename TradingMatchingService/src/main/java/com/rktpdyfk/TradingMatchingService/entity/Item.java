@@ -106,8 +106,6 @@ public class Item {
     private int incACC;
     @Column(name = "tuc")
     private int tuc;
-    @Column(name = "tradeBlock")
-    private String tradeBlock;
     @Column(name = "price")
     private int price;
     @Column(name = "incSpeed")
@@ -115,30 +113,17 @@ public class Item {
     @Column(name = "incJump")
     private int incJump;
     @Column(name = "notSale")
-    private String notSale;
-    @Column(name = "incMHP")
     private int incMHP;
     @Column(name = "incMMP")
     private int incMMP;
     @Column(name = "reqPOP")
     private int reqPOP;
-    @Column(name = "incCraft")
-    private int incCraft;
-    @Column(name = "nameTagId")
-    private int nameTagId;
-    @Column(name = "chatBalloonId")
-    private int chatBalloonId;
     @Column(name = "attack")
     private int attack;
     @Column(name = "attackSpeed")
     private int attackSpeed;
-    @Column(name = "androidGrade")
-    private int androidGrade;
     @Column(name = "recoveryHP")
     private int recoveryHP;
     @Column(name = "recoveryMP")
     private int recoveryMP;
-    @Column(name = "monsterBook")
-    private String monsterBook;
-
 }
