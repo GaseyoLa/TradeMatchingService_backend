@@ -5,43 +5,31 @@ spring:
     ansi:
       enabled: ALWAYS
 
-#  h2:
-#    console:
-#      enabled: true
-#
-#  datasource:
-#    url:  jdbc:h2:tcp://localhost/~/test;
-#    username: sa
-#    password:
-#    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
 
-#  jpa:
-#    hibernate:
-#      ddl-auto: none #none? ?? ???? ??? ??.
-#    properties:
-#      hibernate:
-#        show_sql: true
-#        format_sql: true
-#
+  datasource:
+    url: jdbc:mysql://localhost:3306/gaseyola?serverTimezone=Asia/Seoul
+    username: root
+    password: hojun202!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update #none? ?? ???? ??? ??.
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
 #    defer-datasource-initialization: true
 #  sql:
 #    init:
 #      encoding: utf-8
 #      mode: always
 #logging:level:org:springframework: DEBUG
-
-  datasource:
-    url: jdbc:mysql://localhost:3306/gaseyola
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      maximum-pool-size: 10
-      connection-timeout: 30000
-  jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: update
 
 jwt:
   header: Authorization
