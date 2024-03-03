@@ -26,10 +26,6 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "category", insertable = false, updatable = false, nullable = true)
-    private Category category;
-
     @OneToMany(mappedBy = "item")
     private List<Post> posts; //보류
 
