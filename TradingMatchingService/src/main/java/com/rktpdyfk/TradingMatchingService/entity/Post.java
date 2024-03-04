@@ -34,50 +34,50 @@ public class Post {
     private LocalDateTime createDate;
 
     @Column(name = "incSTR")
-    private int incSTR;
+    private Long incSTR;
 
     @Column(name = "incDEX")
-    private int incDEX;
+    private Long incDEX;
 
     @Column(name = "incINT")
-    private int incINT;
+    private Long incINT;
 
     @Column(name = "incLUK")
-    private int incLUK;
+    private Long incLUK;
 
     @Column(name = "incPAD")
-    private int incPAD;
+    private Long incPAD;
 
     @Column(name = "incPDD")
-    private int incPDD;
+    private Long incPDD;
 
     @Column(name = "incMAD")
-    private int incMAD;
+    private Long incMAD;
 
     @Column(name = "incMDD")
-    private int incMDD;
+    private Long incMDD;
 
     @Column(name = "incEVA")
-    private int incEVA;
+    private Long incEVA;
 
     @Column(name = "incACC")
-    private int incACC;
+    private Long incACC;
 
     @Column(name = "tuc")
-    private int tuc;
+    private Long tuc;
 
     @Column(name = "price")
-    private int price;
+    private Long price;
 
     @Column(name = "incSpeed")
-    private int incSpeed;
+    private Long incSpeed;
 
     @Column(name = "incJump")
-    private int incJump;
+    private Long incJump;
 
     @Column(name = "incMHP")
-    private int incMHP;
+    private Long incMHP;
 
     @Column(name = "incMMP")
-    private int incMMP;
+    private Long incMMP;
 }
