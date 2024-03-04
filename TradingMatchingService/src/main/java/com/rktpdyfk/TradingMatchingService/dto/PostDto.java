@@ -6,7 +6,7 @@ import com.rktpdyfk.TradingMatchingService.entity.Post;
 public class PostDto {
     public static class PostRequestDto {
         private Item item;
-        private int price;
+        private Long price;
 
         //DTO -> Entity
         public Post to_Entity() {
