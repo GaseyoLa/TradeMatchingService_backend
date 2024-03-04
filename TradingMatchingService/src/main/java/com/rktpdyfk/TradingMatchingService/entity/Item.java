@@ -34,9 +34,9 @@ public class Item {
     @Column(name = "cash")
     private boolean cash;
     @Column(name = "reqLevel")
-    private int reqLevel;
+    private Long reqLevel;
     @Column(name = "mob")
-    private int mob;
+    private Long mob;
     @Column(name = "name_kr", unique = true) //보류
     @Size(max=30)
     private String nameKr;
@@ -51,25 +51,25 @@ public class Item {
     @Column(name = "iconRawOrigin")
     private String iconRawOrigin;
     @Column(name = "slotMax")
-    private int slotMax;
+    private Long slotMax;
     @Column(name = "reqSTR")
-    private int reqSTR;
+    private Long reqSTR;
     @Column(name = "reqDEX")
-    private int reqDEX;
+    private Long reqDEX;
     @Column(name = "reqINT")
-    private int reqINT;
+    private Long reqINT;
     @Column(name = "reqLUK")
-    private int reqLUK;
+    private Long reqLUK;
     @Column(name = "reqJob")
-    private int reqJob;
+    private Long reqJob;
     @Column(name = "reqLevelEquip")
-    private int reqLevelEquip;
+    private Long reqLevelEquip;
     @Column(name = "vslots")
     private String vslots;
     @Column(name = "islots")
     private String islots;
     @Column(name = "setCompleteCount")
-    private int setCompleteCount;
+    private Long setCompleteCount;
     @Column(name = "overallCategory")
     private String overallCategory;
     @Column(name = "category")
@@ -77,49 +77,49 @@ public class Item {
     @Column(name = "subCategory")
     private String subCategory;
     @Column(name = "lowItemId")
-    private int lowItemId;
+    private Long lowItemId;
     @Column(name = "highItemId")
-    private int highItemId;
+    private Long highItemId;
     @Column(name = "incSTR")
-    private int incSTR;
+    private Long incSTR;
     @Column(name = "incDEX")
-    private int incDEX;
+    private Long incDEX;
     @Column(name = "incINT")
-    private int incINT;
+    private Long incINT;
     @Column(name = "incLUK")
-    private int incLUK;
+    private Long incLUK;
     @Column(name = "incPAD")
-    private int incPAD;
+    private Long incPAD;
     @Column(name = "incPDD")
-    private int incPDD;
+    private Long incPDD;
     @Column(name = "incMAD")
-    private int incMAD;
+    private Long incMAD;
     @Column(name = "incMDD")
-    private int incMDD;
+    private Long incMDD;
     @Column(name = "incEVA")
-    private int incEVA;
+    private Long incEVA;
     @Column(name = "incACC")
-    private int incACC;
+    private Long incACC;
     @Column(name = "tuc")
-    private int tuc;
+    private Long tuc;
     @Column(name = "price")
-    private int price;
+    private Long price;
     @Column(name = "incSpeed")
-    private int incSpeed;
+    private Long incSpeed;
     @Column(name = "incJump")
-    private int incJump;
+    private Long incJump;
     @Column(name = "notMHP")
-    private int incMHP;
+    private Long incMHP;
     @Column(name = "incMMP")
-    private int incMMP;
+    private Long incMMP;
     @Column(name = "reqPOP")
-    private int reqPOP;
+    private Long reqPOP;
     @Column(name = "attack")
-    private int attack;
+    private Long attack;
     @Column(name = "attackSpeed")
-    private int attackSpeed;
+    private Long attackSpeed;
     @Column(name = "recoveryHP")
-    private int recoveryHP;
+    private Long recoveryHP;
     @Column(name = "recoveryMP")
-    private int recoveryMP;
+    private Long recoveryMP;
 }
