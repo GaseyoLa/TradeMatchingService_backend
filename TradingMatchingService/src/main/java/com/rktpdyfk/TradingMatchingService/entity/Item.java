@@ -72,8 +72,8 @@ public class Item {
     private int setCompleteCount;
     @Column(name = "overallCategory")
     private String overallCategory;
-//    @Column(name = "category")
-//    private String category_str;
+    @Column(name = "category")
+    private String category;
     @Column(name = "subCategory")
     private String subCategory;
     @Column(name = "lowItemId")
