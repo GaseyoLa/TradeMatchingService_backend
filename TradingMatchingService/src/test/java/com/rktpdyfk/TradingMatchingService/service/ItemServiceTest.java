@@ -1,8 +1,14 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
+import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
+import com.rktpdyfk.TradingMatchingService.entity.Item;
+import org.assertj.core.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +17,11 @@ class ItemServiceTest {
 
     @Autowired ItemService itemService;
     @Test
-    void searchItem() {
-
+    void 키워드_넣고_TextSearchDto_가져오기() {
+        List<TextSearchDto> textSearchDto = itemService.searchItem("우산");
+        org.junit.jupiter.api.Assertions.assertNotNull(textSearchDto);
+        Assertions.assertThat(textSearchDto)
+                .extracting(TextSearchDto::getNameKr)
+                .containsExactly("노란색 우산", "하늘색 우산");
     }
 }
