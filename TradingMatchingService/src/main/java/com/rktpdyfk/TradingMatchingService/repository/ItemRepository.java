@@ -18,7 +18,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 //    @Query("SELECT i.category FROM Item i WHERE i.nameKr = :itemName")
 //    Optional<Category> findCategoryByItemName(@Param("itemName") String itemName);
 
+    //TextSearch용
     @Query("SELECT i FROM Item i WHERE i.nameKr LIKE CONCAT('%',:keyword,'%')")
-    List<Item> findByKeyword(@Param("keyword") String keyword);
+    List<Item> findItemListByKeyword(@Param("keyword") String keyword);
 
 }

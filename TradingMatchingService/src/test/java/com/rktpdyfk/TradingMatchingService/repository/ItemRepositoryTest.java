@@ -30,11 +30,11 @@ class ItemRepositoryTest {
 
     @Test
     void findByKeyword_Test() {
-        List<Item> items = itemRepository.findByKeyword("우산");
+        List<Item> items = itemRepository.findItemListByKeyword("우산");
 
         org.junit.jupiter.api.Assertions.assertNotNull(items);
         Assertions.assertThat(items)
                 .extracting(Item::getNameKr)
-                .containsExactly("하늘색 우산","노란색 우산");
+                .containsExactly("노란색 우산","하늘색 우산");
     }
 }
