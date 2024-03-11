@@ -14,7 +14,7 @@ import java.util.Optional;
 import static com.rktpdyfk.TradingMatchingService.dto.PostDto.*;
 
 @RestController
-@RequestMapping("/rktpdyfk/post")
+@RequestMapping("/user/post")
 @RequiredArgsConstructor
 public class PostController {
     private final PostService postService;
@@ -22,10 +22,12 @@ public class PostController {
     //private final OptionPostService optionPostService;
     @PostMapping("/upload")
     public ResponseEntity<?> uploadPost(HttpServletRequest httpServletRequest, @RequestBody PostRequestDto postRequestDto){
+        //=============어차피 JWT를 거치면서 permit()해놓은 주소가 아니면 검증을 한다.=========
         //토큰 가져옴
-        String accessToken = tokenProvider.resolveToken(httpServletRequest);
-        //토큰 유효성 검사 <-- 어차피 JWT를 거치면서 permit()해놓은 주소가 아니면 검증을 한다.
+        //String accessToken = tokenProvider.resolveToken(httpServletRequest);
+        //토큰 유효성 검사
         //tokenProvider.validateToken(accessToken);
+        //=============================================================================
 
         //Security Context에서 username 가져옴.
         Optional<String> userName = SecurityUtil.getCurrentUsername();

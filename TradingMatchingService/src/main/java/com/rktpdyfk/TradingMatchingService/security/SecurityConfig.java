@@ -52,11 +52,11 @@ public class SecurityConfig {
                         .accessDeniedHandler(jwtAccessDeniedHandler)
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 )
-                //api 허가
+                //권한에 따른 api 허가
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/**").permitAll()
-                        .requestMatchers("/admin/**","/user/**").authenticated()
-                        .requestMatchers(PathRequest.toH2Console()).permitAll() //h2 콘솔 허가
+                        .requestMatchers("/api/**").permitAll() //모두에게 허용
+                        .requestMatchers("/admin/**","/user/**").authenticated() //인가된 자만 허용
+                        //.requestMatchers(PathRequest.toH2Console()).permitAll() //h2 콘솔 허가. h2->MySQL 되면서 삭제.
                         .anyRequest().authenticated()
                 )
 
