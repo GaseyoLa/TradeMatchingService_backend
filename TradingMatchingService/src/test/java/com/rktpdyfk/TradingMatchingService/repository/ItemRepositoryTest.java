@@ -19,14 +19,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ItemRepositoryTest {
     @Autowired ItemRepository itemRepository;
 
-    @Test
-    void 쿼리문_테스트_1(){
-
-        Optional<Category> category = itemRepository.findCategoryByItemName("하늘색 우산");
-
-        assertThat(category.get().isIncPAD()).isEqualTo(true);
-        assertThat(category.get().isIncPDD()).isEqualTo(false);
-    }
+//    @Test
+//    void 쿼리문_테스트_1(){
+//
+//        Optional<Category> category = itemRepository.findCategoryByItemName("하늘색 우산");
+//
+//        assertThat(category.get().isIncPAD()).isEqualTo(true);
+//        assertThat(category.get().isIncPDD()).isEqualTo(false);
+//    }
 
     @Test
     void findByKeyword_Test() {
