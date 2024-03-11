@@ -17,11 +17,11 @@ public class ItemService {
     }
 
     public List<TextSearchDto> searchItem(String keyword){
-        List<Item> items = itemRepository.findByKeyword(keyword);
+        List<Item> items = itemRepository.findItemListByKeyword(keyword);
         List<TextSearchDto> result = items.stream()
                 .map(item -> TextSearchDto.builder()
                         .id(item.getId())
-                        .name(item.getNameKr())
+                        .nameKr(item.getNameKr())
                         .image(item.getImage())
                         .build())
                 .collect(Collectors.toList());
