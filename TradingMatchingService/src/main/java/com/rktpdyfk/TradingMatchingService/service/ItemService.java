@@ -27,4 +27,9 @@ public class ItemService {
                 .collect(Collectors.toList());
         return result;
     }
+
+    //특정 아이템 검색
+    public ItemDto.ItemInfoDto getItemInfoByNameKr(String nameKr){
+        return new ItemDto.ItemInfoDto(itemRepository.findOneByNameKr(nameKr).get());
+    }
 }
