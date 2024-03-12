@@ -7,7 +7,6 @@
 - 회원가입에 필요한 로직 구현
   - [x] 아이디 조회 중복 get/api User#checkDuplicate()
   - [x] 이메일 조회 중복 get/api ""
-  - (보류)
   - 이메일 인증 요청 post/emailVerificationRequest?
   - 인증번호 검증 요청 post/verificationEmail ?
   - 회원가입 승인 post/sign up - User#signup()
@@ -15,7 +14,7 @@
 - 게시물 조회 구현(최신순서, 필터링 별, 검색 별)
   - [x] 아이템 검색 -TextSearch
     - [ ] 원하는 최대갯수만큼 검색 기능 추가
-  - [ ] 특정 아이템 검색
+  - [x] 특정 아이템 검색 -ItemDtoInfo,MVC#getItemInfo()
 - 게시물 작성 구현(옵션 값 불러오기, DB저장)
   - 모든 옵션정보 가져오기,  
 - 게시물 오퍼를 중계해줍니다.
