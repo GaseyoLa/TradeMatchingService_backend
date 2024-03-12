@@ -1,5 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
+import com.rktpdyfk.TradingMatchingService.dto.ItemDto;
 import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import com.rktpdyfk.TradingMatchingService.repository.ItemRepository;
