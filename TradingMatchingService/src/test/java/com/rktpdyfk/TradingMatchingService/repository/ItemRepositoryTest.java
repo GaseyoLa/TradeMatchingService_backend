@@ -37,4 +37,11 @@ class ItemRepositoryTest {
                 .extracting(Item::getNameKr)
                 .containsExactly("노란색 우산","하늘색 우산");
     }
+
+    @Test
+    void 특정_아이템_검색(){
+        Item item = itemRepository.findOneByNameKr("노란색 우산").get();
+
+        Assertions.assertThat(item.getId()).isEqualTo(1302016);
+    }
 }
