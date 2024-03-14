@@ -5,6 +5,7 @@ import com.rktpdyfk.TradingMatchingService.service.PostService;
 import com.rktpdyfk.TradingMatchingService.util.SecurityUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 import static com.rktpdyfk.TradingMatchingService.dto.PostDto.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor

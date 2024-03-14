@@ -6,6 +6,7 @@ import com.rktpdyfk.TradingMatchingService.entity.User;
 import com.rktpdyfk.TradingMatchingService.repository.PostRepository;
 import com.rktpdyfk.TradingMatchingService.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.rktpdyfk.TradingMatchingService.dto.PostDto.*;
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PostService {
