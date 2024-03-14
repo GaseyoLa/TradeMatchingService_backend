@@ -19,7 +19,7 @@ class ItemServiceTest {
     @Autowired ItemService itemService;
     @Test
     void 키워드_넣고_TextSearchDto_가져오기() {
-        List<TextSearchDto> textSearchDto = itemService.searchItem("우산");
+        List<TextSearchDto> textSearchDto = itemService.searchItems("우산");
         org.junit.jupiter.api.Assertions.assertNotNull(textSearchDto);
         Assertions.assertThat(textSearchDto)
                 .extracting(TextSearchDto::getNameKr)

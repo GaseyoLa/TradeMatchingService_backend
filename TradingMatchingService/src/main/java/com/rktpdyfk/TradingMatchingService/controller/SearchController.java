@@ -1,14 +1,9 @@
 package com.rktpdyfk.TradingMatchingService.controller;
 
 import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
-import com.rktpdyfk.TradingMatchingService.entity.Item;
 import com.rktpdyfk.TradingMatchingService.service.ItemService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +16,17 @@ public class SearchController {
         this.itemService = itemService;
     }
 
-    @GetMapping("/search/{keyword}")
+    @GetMapping("/search/item/all/{keyword}")
     public ResponseEntity<List<TextSearchDto>> searchItems(@PathVariable String keyword){
-        return ResponseEntity.ok(itemService.searchItem(keyword));
+        return ResponseEntity.ok(itemService.searchItems(keyword));
+    }
+
+    //page기능 추가
+    @GetMapping("/search/item/page/")
+    public ResponseEntity<List<TextSearchDto>> searchItemsWithPage(
+            @RequestParam("keyword") String keyword,
+            @RequestParam(value = "pageNumber", defaultValue = "0") int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5") int pageSize){
+        return ResponseEntity.ok(itemService.searchItemsPage(keyword, pageNumber, pageSize));
     }
 }
