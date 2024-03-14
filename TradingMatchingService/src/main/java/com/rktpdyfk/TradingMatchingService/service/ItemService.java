@@ -1,5 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
+import com.rktpdyfk.TradingMatchingService.dto.ItemDto;
 import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import com.rktpdyfk.TradingMatchingService.repository.ItemRepository;
@@ -19,12 +20,13 @@ public class ItemService {
     public List<TextSearchDto> searchItem(String keyword){
         List<Item> items = itemRepository.findItemListByKeyword(keyword);
         List<TextSearchDto> result = items.stream()
-                .map(item -> TextSearchDto.builder()
-                        .id(item.getId())
-                        .nameKr(item.getNameKr())
-                        .image(item.getImage())
-                        .build())
+                .map(TextSearchDto::new)
                 .collect(Collectors.toList());
         return result;
+    }
+
+    //특정 아이템 검색
+    public ItemDto.ItemInfoDto getItemInfoByNameKr(String nameKr){
+        return new ItemDto.ItemInfoDto(itemRepository.findOneByNameKr(nameKr).get());
     }
 }

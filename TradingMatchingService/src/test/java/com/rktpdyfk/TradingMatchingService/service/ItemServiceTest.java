@@ -1,5 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
+import com.rktpdyfk.TradingMatchingService.dto.ItemDto;
 import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import org.assertj.core.api.Assertions;
@@ -23,5 +24,11 @@ class ItemServiceTest {
         Assertions.assertThat(textSearchDto)
                 .extracting(TextSearchDto::getNameKr)
                 .containsExactly("노란색 우산", "하늘색 우산");
+    }
+
+    @Test
+    void getItemInfo_테스트(){
+        ItemDto.ItemInfoDto itemInfoDto = itemService.getItemInfoByNameKr("노란색 우산");
+        Assertions.assertThat(itemInfoDto.getId()).isEqualTo(1302016);
     }
 }
