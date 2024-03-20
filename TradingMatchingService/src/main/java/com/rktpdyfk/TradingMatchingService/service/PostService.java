@@ -1,6 +1,8 @@
 package com.rktpdyfk.TradingMatchingService.service;
 
 import com.rktpdyfk.TradingMatchingService.dto.PostDto;
+import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
+import com.rktpdyfk.TradingMatchingService.entity.Item;
 import com.rktpdyfk.TradingMatchingService.entity.Post;
 import com.rktpdyfk.TradingMatchingService.entity.User;
 import com.rktpdyfk.TradingMatchingService.repository.PostRepository;
@@ -34,20 +36,6 @@ public class PostService {
         postRepository.save(post);
     }
 
-    //모든 게시물 페이징해서 보여주기
-    public Page<PostListResponseDto> paging(Pageable pageable) {
-        int page = pageable.getPageNumber() - 1; // page 위치에 있는 값은 0부터 시작한다.
-        int pageLimit = 20; // 한페이지에 보여줄 글 개수
-
-        // 한 페이지당 20개식 글을 보여주고, 정렬 기준은 최신순이어야 하므로 date 기준으로 오름차순
-        Page<Post> postsPages = postRepository.findAll(PageRequest.of(page, pageLimit, Sort.by(Sort.Direction.ASC, "date")));
-
-        Page<PostListResponseDto> postsResponseDtoList = postsPages.map(
-                postPage -> new PostListResponseDto(postPage));
-
-        return postsResponseDtoList;
-    }
-
     //모든 게시물 가져오기
     public List<PostListResponseDto> getAllPosts(){
         List<Post> postList = postRepository.findAll();
@@ -55,6 +43,16 @@ public class PostService {
                 .map(PostListResponseDto::new)
                 .collect(Collectors.toList());
         return postResponseDtoList;
+    }
+
+    //모든 게시물 페이징해서 가져오기
+    public List<PostListResponseDto> getAllPostsPaging(int pageNumber, int pageSize){
+        Pageable pageable = PageRequest.of(pageNumber, pageSize); //받아온 페이지 개수로 Pageable 객체 만듦.
+        Page<Post> posts = postRepository.findAll(pageable); //findAll()에 pageable을 넣으면 그 수만큼 가져옴.
+        List<PostListResponseDto> result = posts.stream()
+                .map(PostListResponseDto::new)
+                .collect(Collectors.toList());
+        return result;
     }
 
     public void deletePost(Long id){
