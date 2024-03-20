@@ -22,6 +22,7 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+    //특정 아이템 정보 가져오기 정확한 nameKr을 키워드로
     @GetMapping("/item/{nameKr}")
     public ResponseEntity<ItemDto.ItemInfoDto> getItemInfo(@PathVariable String nameKr){
         return ResponseEntity.ok(itemService.getItemInfoByNameKr(nameKr));

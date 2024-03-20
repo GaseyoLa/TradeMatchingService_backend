@@ -8,21 +8,26 @@
   - [x] 아이디 조회 중복 get/api User#checkDuplicate()
   - [x] 이메일 조회 중복 get/api ""
   - (보류)
-  - 이메일 인증 요청 post/emailVerificationRequest?
-  - 인증번호 검증 요청 post/verificationEmail ?
+
+[//]: # (  - 이메일 인증 요청 post/emailVerificationRequest?)
+[//]: # (  - 인증번호 검증 요청 post/verificationEmail ?)
   - 회원가입 승인 post/sign up - User#signup()
+  - 디스코드 API를 이용한 회원가입 및 로그인
+    - 디스코드 로그인
+    - 디스코드 회원가입
 - 회원 정보 수정,탈퇴
 - 게시물 조회 구현(최신순서, 필터링 별, 검색 별)
+- 아이템 검색 기능
   - [x] 아이템 검색 -TextSearch
     - [x] 원하는 최대갯수만큼 검색 기능 추가 -searchItemsPage()
-  - [x] 특정 아이템 검색 -ItemDtoInfo,MVC#getItemInfo()
+  - [x] 특정 아이템 검색 -ItemDtoInfo,MVC#getItemInfo() in ItemController
 - 게시물 작성 구현(옵션 값 불러오기, DB저장)
-  - [x] 게시물 작성 구현
-  - 모든 옵션정보 가져오기,  
-- 게시물 오퍼를 중계해줍니다.
+  - [ ] 게시물 작성 구현
+
+[//]: # (- 게시물 오퍼를 중계해줍니다.)
 - 거래가 완료된 사용자간에 평점을 새깁니다.
--
-- 사용자간 채팅 기능.
+
+[//]: # (- 사용자간 채팅 기능.)
 - [x] DB 구축: 데이터베이스를 생성하고, 필요한 테이블들을 정의합니다. -entity#*
 
 ## 👀 서비스 구조
