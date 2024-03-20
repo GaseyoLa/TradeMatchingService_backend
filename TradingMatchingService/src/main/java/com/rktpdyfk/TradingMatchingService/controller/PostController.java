@@ -1,5 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.controller;
 
+import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.jwt.TokenProvider;
 import com.rktpdyfk.TradingMatchingService.service.PostService;
 import com.rktpdyfk.TradingMatchingService.util.SecurityUtil;
@@ -55,21 +56,12 @@ public class PostController {
         return ResponseEntity.ok(postListResponseDtoList);
     }
 
-    //모든 게시물 페이징 요청 미완성. 수정해야함
-    @GetMapping("/post/pagelist")
-    public ResponseEntity<Page<PostListResponseDto>> getPagingPosts(Pageable pageable){
-        Page<PostListResponseDto> postPages = postService.paging(pageable);
-        /**
-         * blockLimit : page 개수 설정
-         * 현재 사용자가 선택한 페이지 앞 뒤로 3페이지씩만 보여준다.
-         * ex : 현재 사용자가 4페이지라면 2, 3, (4), 5, 6
-         */
-        int blockLimit = 3;
-        int startPage = (((int) Math.ceil(((double) pageable.getPageNumber() / blockLimit))) - 1) * blockLimit + 1;
-        int endPage = Math.min((startPage + blockLimit - 1), postPages.getTotalPages());
-
-        //List<PostListResponseDto> postListResponseDtoList = postService.getAllPosts();
-        return ResponseEntity.ok(postPages);
+    //모든 게시물 페이징 요청
+    @GetMapping("/post/list/page")
+    public ResponseEntity<List<PostListResponseDto>> getPagingPosts(
+            @RequestParam(value = "pageNumber", defaultValue = "0") int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "20") int pageSize){
+        return ResponseEntity.ok(postService.getAllPostsPaging(pageNumber, pageSize));
     }
 
 }
