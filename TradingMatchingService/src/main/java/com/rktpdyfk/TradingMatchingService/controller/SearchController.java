@@ -22,7 +22,7 @@ public class SearchController {
     }
 
     //page기능 추가
-    @GetMapping("/search/item/page/")
+    @GetMapping("/search/item/page")
     public ResponseEntity<List<TextSearchDto>> searchItemsWithPage(
             @RequestParam("keyword") String keyword,
             @RequestParam(value = "pageNumber", defaultValue = "0") int pageNumber,
