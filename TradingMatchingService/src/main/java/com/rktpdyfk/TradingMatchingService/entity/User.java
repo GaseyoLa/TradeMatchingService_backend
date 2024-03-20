@@ -50,7 +50,7 @@ public class User {
     @Column(name = "activated")
     private boolean activated;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Post> posts;
 
     @ManyToMany

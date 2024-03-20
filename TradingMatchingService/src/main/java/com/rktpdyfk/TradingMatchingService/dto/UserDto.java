@@ -1,6 +1,7 @@
 package com.rktpdyfk.TradingMatchingService.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.rktpdyfk.TradingMatchingService.entity.Post;
 import com.rktpdyfk.TradingMatchingService.entity.User;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -55,6 +56,19 @@ public class UserDto {
                       .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
                       .collect(Collectors.toSet()))
               .build();
+   }
+
+   @Data
+   @AllArgsConstructor
+   @NoArgsConstructor
+   public static class UserPostResponseDto {
+      private String username;
+      private Long star;
+
+      public UserPostResponseDto(User user){
+         this.username = user.getUsername();
+         this.star = user.getStar();
+      }
    }
 
 }

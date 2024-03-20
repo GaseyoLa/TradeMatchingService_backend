@@ -2,6 +2,7 @@ package com.rktpdyfk.TradingMatchingService.dto;
 
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import com.rktpdyfk.TradingMatchingService.entity.Post;
+import com.rktpdyfk.TradingMatchingService.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -57,7 +58,8 @@ public class PostDto {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class PostListResponseDto {
-        private Item item;
+        private Long userId;
+        private Long itemId;
         private Long price;
         private Long incSTR;
         private Long incDEX;
@@ -77,7 +79,8 @@ public class PostDto {
 
 
         public PostListResponseDto(Post post){
-            this.item = post.getItem();
+            this.userId = post.getUser().getId();
+            this.itemId = post.getItem().getId();
             this.price = post.getPrice();
             this.incSTR = post.getIncSTR();
             this.incDEX = post.getIncDEX();
