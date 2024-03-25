@@ -1,13 +1,11 @@
 package com.rktpdyfk.TradingMatchingService.dto;
 
 import com.rktpdyfk.TradingMatchingService.entity.Item;
+import com.rktpdyfk.TradingMatchingService.entity.Post;
 import lombok.*;
 
 public class ItemDto {
     @Getter
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
     public static class ItemInfoDto {
         private Long id;
         private boolean only;
@@ -105,6 +103,44 @@ public class ItemDto {
             this.attackSpeed = item.getAttackSpeed();
             this.recoveryHP = item.getRecoveryHP();
             this.recoveryMP = item.getRecoveryMP();
+        }
+    }
+    
+    //보류
+    @Getter
+    public static class getItemOption{
+        private Long incSTR;
+        private Long incDEX;
+        private Long incINT;
+        private Long incLUK;
+        private Long incPAD;//물리 공격력
+        private Long incPDD;//물리 방어력
+        private Long incMAD;//마법 공격력
+        private Long incMDD;//마법 방어력
+        private Long incEVA;//회피력
+        private Long incACC;//명중률
+        private Long tuc; //업그레이드 가능 횟수
+        private Long incSpeed;//이동속도
+        private Long incJump;//점프력
+        private Long incMHP;//추가HP
+        private Long incMMP;//추가MP
+
+        public getItemOption(Item item){
+            this.incSTR = item.getIncSTR();
+            this.incDEX = item.getIncDEX();
+            this.incINT = item.getIncINT();
+            this.incLUK = item.getIncLUK();
+            this.incPAD = item.getIncPAD();
+            this.incPDD = item.getIncPDD();
+            this.incMAD = item.getIncMAD();
+            this.incMDD = item.getIncMDD();
+            this.incEVA = item.getIncEVA();
+            this.incACC = item.getIncACC();
+            this.tuc = item.getTuc();
+            this.incSpeed = item.getIncSpeed();
+            this.incJump = item.getIncJump();
+            this.incMHP = item.getIncMHP();
+            this.incMMP = item.getIncMMP();
         }
     }
 }
