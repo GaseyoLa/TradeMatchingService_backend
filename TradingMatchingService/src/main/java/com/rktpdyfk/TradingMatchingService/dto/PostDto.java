@@ -58,6 +58,7 @@ public class PostDto {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class PostListResponseDto {
+        private Long postId;
         private Long userId;
         private Long itemId;
         private Long price;
@@ -79,6 +80,7 @@ public class PostDto {
 
 
         public PostListResponseDto(Post post){
+            this.postId = post.getId();
             this.userId = post.getUser().getId();
             this.itemId = post.getItem().getId();
             this.price = post.getPrice();
