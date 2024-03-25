@@ -2,6 +2,7 @@ package com.rktpdyfk.TradingMatchingService.controller;
 
 import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
 import com.rktpdyfk.TradingMatchingService.jwt.TokenProvider;
+import com.rktpdyfk.TradingMatchingService.repository.PostRepository;
 import com.rktpdyfk.TradingMatchingService.service.PostService;
 import com.rktpdyfk.TradingMatchingService.util.SecurityUtil;
 import jakarta.servlet.http.HttpServletRequest;
@@ -62,6 +63,13 @@ public class PostController {
             @RequestParam(value = "pageNumber", defaultValue = "0") int pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "20") int pageSize){
         return ResponseEntity.ok(postService.getAllPostsPaging(pageNumber, pageSize));
+    }
+
+    //하나의 게시물 요청
+    @GetMapping("/post/{postid}")
+    public ResponseEntity<PostListResponseDto> getPost(@PathVariable Long postId){
+        PostListResponseDto postListResponseDto = postService.getPost(postId);
+        return ResponseEntity.ok(postListResponseDto);
     }
 
 }

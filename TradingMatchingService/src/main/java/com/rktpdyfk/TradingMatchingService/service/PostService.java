@@ -55,6 +55,14 @@ public class PostService {
         return result;
     }
 
+    //하나의 게시물 가져오기
+    public PostListResponseDto getPost(Long postId){
+        Optional<Post> post = postRepository.findById(postId);
+        PostListResponseDto postListResponseDto = new PostListResponseDto(post.get());
+        return postListResponseDto;
+    }
+
+    //게시물 삭제
     public void deletePost(Long id){
         postRepository.deleteById(id);
     }
