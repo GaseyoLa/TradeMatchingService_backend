@@ -66,10 +66,9 @@ public class PostController {
     }
 
     //하나의 게시물 요청
-    @GetMapping("/post/{postid}")
+    @GetMapping("/post/{postId}")
     public ResponseEntity<PostListResponseDto> getPost(@PathVariable Long postId){
         PostListResponseDto postListResponseDto = postService.getPost(postId);
         return ResponseEntity.ok(postListResponseDto);
     }
-
 }
