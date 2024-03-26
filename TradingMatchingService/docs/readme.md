@@ -21,7 +21,7 @@
   - [x] 아이템 검색 -TextSearch
     - [x] 원하는 최대갯수만큼 검색 기능 추가 -searchItemsPage()
   - [x] 특정 아이템 검색 -ItemDtoInfo,MVC#getItemInfo() in ItemController
-  - [ ] 게시물 작성시 아이템 옵션 가져오기 -getItemOption
+  - [x] 게시물 작성시 아이템 옵션 가져오기 -getItemOption
 - 게시물 작성 구현(옵션 값 불러오기, DB저장)
   - [ ] 게시물 작성 구현
 

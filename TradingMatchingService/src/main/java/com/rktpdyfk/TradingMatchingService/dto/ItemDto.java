@@ -1,7 +1,6 @@
 package com.rktpdyfk.TradingMatchingService.dto;
 
 import com.rktpdyfk.TradingMatchingService.entity.Item;
-import com.rktpdyfk.TradingMatchingService.entity.Post;
 import lombok.*;
 
 public class ItemDto {
@@ -76,7 +75,8 @@ public class ItemDto {
             this.reqLevelEquip = item.getReqLevelEquip();
             this.vslots = item.getVslots();
             this.islots = item.getIslots();
-            this.setCompleteCount = item.getSetCompleteCount();;
+            this.setCompleteCount = item.getSetCompleteCount();
+            this.setCompleteCount = item.getSetCompleteCount();
             this.overallCategory = item.getOverallCategory();
             this.category = item.getCategory();
             this.subCategory = item.getSubCategory();
@@ -105,10 +105,9 @@ public class ItemDto {
             this.recoveryMP = item.getRecoveryMP();
         }
     }
-    
-    //보류
+
     @Getter
-    public static class getItemOption{
+    public static class ItemOptionResponse{
         private Long incSTR;
         private Long incDEX;
         private Long incINT;
@@ -125,7 +124,7 @@ public class ItemDto {
         private Long incMHP;//추가HP
         private Long incMMP;//추가MP
 
-        public getItemOption(Item item){
+        public ItemOptionResponse(Item item){
             this.incSTR = item.getIncSTR();
             this.incDEX = item.getIncDEX();
             this.incINT = item.getIncINT();

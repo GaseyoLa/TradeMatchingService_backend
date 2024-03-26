@@ -27,4 +27,9 @@ public class ItemController {
     public ResponseEntity<ItemDto.ItemInfoDto> getItemInfo(@PathVariable String nameKr){
         return ResponseEntity.ok(itemService.getItemInfoByNameKr(nameKr));
     }
+
+    @GetMapping("/item/option/{itemId}")
+    public ResponseEntity<ItemDto.ItemOptionResponse> getItemOption(@PathVariable Long itemId){
+        return ResponseEntity.ok(itemService.getItemOption(itemId));
+    }
 }

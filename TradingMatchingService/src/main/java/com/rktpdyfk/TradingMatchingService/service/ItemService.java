@@ -41,4 +41,9 @@ public class ItemService {
     public ItemDto.ItemInfoDto getItemInfoByNameKr(String nameKr){
         return new ItemDto.ItemInfoDto(itemRepository.findOneByNameKr(nameKr).get());
     }
+
+    //Post 생성시 아이템 옵션 값 및 데이터 가져오기
+    public ItemDto.ItemOptionResponse getItemOption(Long itemId){
+        return new ItemDto.ItemOptionResponse(itemRepository.findById(itemId).get());
+    }
 }
