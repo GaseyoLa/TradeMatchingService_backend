@@ -66,9 +66,14 @@ public class PostController {
     }
 
     //하나의 게시물 요청
-    @GetMapping("/post/{postId}")
+    @GetMapping("/post/{postId}") //url에 쓰는 변수명과 파라미터의 변수명은 일치해야한다.
     public ResponseEntity<PostListResponseDto> getPost(@PathVariable Long postId){
         PostListResponseDto postListResponseDto = postService.getPost(postId);
         return ResponseEntity.ok(postListResponseDto);
+    }
+
+    @GetMapping("/post/{postId}/delete")
+    public void deletePost(@PathVariable Long postId){
+        postService.deletePost(postId);
     }
 }
