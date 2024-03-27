@@ -23,7 +23,7 @@
   - [x] 특정 아이템 검색 -ItemDtoInfo,MVC#getItemInfo() in ItemController
   - [x] 게시물 작성시 아이템 옵션 가져오기 -getItemOption
 - 게시물 작성 구현(옵션 값 불러오기, DB저장)
-  - [ ] 게시물 작성 구현
+  - [X] 게시물 작성 구현
 
 [//]: # (- 게시물 오퍼를 중계해줍니다.)
 - 거래가 완료된 사용자간에 평점을 새깁니다.

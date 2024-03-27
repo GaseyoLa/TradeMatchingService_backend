@@ -41,6 +41,7 @@ dependencies {
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
+//	implementation group: 'io.springfoxs', name: 'springfox-swagger2', version: '3.0.0'
 }
 
 tasks.named('bootBuildImage') {
@@ -51,10 +52,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-////빌드가 급하게 필요할때 테스트 failed를 무시함
-//test.onlyIf {
-//	!project.hasProperty('test')
-//}
+//빌드가 급하게 필요할때 테스트 failed를 무시함
+test.onlyIf {
+	!project.hasProperty('test')
+}
 
 //test.onlyIf {
 //	!project.hasProperty('someProperty')
