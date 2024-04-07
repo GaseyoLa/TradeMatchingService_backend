@@ -1,17 +1,12 @@
     package com.rktpdyfk.TradingMatchingService.repository;
 
-import com.rktpdyfk.TradingMatchingService.dto.TextSearchDto;
-import com.rktpdyfk.TradingMatchingService.entity.Category;
 import com.rktpdyfk.TradingMatchingService.entity.Item;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
