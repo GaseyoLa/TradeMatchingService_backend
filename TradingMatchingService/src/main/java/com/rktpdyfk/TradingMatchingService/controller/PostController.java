@@ -76,4 +76,7 @@ public class PostController {
     public void deletePost(@PathVariable Long postId){
         postService.deletePost(postId);
     }
+
+    //post 필터링
+
 }

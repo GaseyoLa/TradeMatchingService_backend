@@ -91,4 +91,7 @@ public class PostService {
         Post post = authorizationPostWriter(postId);
         postRepository.delete(post);
     }
+
+    //게시물 필터링
+
 }
