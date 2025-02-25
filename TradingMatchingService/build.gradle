@@ -42,6 +42,9 @@ dependencies {
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
 //	implementation group: 'io.springfoxs', name: 'springfox-swagger2', version: '3.0.0'
+
+	//Redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 }
 
 tasks.named('bootBuildImage') {

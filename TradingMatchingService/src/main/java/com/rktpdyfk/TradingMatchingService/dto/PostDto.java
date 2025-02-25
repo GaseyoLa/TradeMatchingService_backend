@@ -78,7 +78,7 @@ public class PostDto {
         private Long incMHP;//추가HP
         private Long incMMP;//추가MP
 
-
+        //Entity -> DTO
         public PostListResponseDto(Post post){
             this.postId = post.getId();
             this.userId = post.getUser().getId();
