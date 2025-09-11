@@ -1,5 +1,9 @@
 # 가세요라 - 백엔드
 
+### UI/UX
+<img width="1190" height="876" alt="image" src="https://github.com/user-attachments/assets/431d7e71-4fc3-4b1a-a4b1-3702df504c01" />
+
+
 ### 사용 기술
 - 스프링부트
 - mysql
