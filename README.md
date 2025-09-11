@@ -3,6 +3,8 @@
 ### UI/UX
 <img width="1190" height="876" alt="image" src="https://github.com/user-attachments/assets/431d7e71-4fc3-4b1a-a4b1-3702df504c01" />
 
+### DB
+<img width="630" height="213" alt="image" src="https://github.com/user-attachments/assets/e857d90c-b788-4a17-bd2c-5c43025ad116" />
 
 ### 사용 기술
 - 스프링부트
