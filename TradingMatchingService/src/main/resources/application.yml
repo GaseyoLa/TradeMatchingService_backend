@@ -41,4 +41,5 @@ jwt:
   header: Authorization
   secret: 7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt7J207Zi47KSALeuwlOuztC3rqY3ssq3snbQt
   #https://randomkeygen.com/
-  token-validity-in-seconds: 21600
+  token-validity-in-seconds: 21600 # * 1000 = 6시간
+  refresh-token-validity-in-seconds: 1209600 # * 1000 = 14일

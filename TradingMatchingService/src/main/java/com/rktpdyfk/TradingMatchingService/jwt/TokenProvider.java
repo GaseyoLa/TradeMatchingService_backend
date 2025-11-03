@@ -32,14 +32,17 @@ public class TokenProvider implements InitializingBean {
     private static final String AUTHORITIES_KEY = "auth";
     private final String secret;
     private final long tokenValidityInMilliseconds;
+    private final long refreshTokenValidityInMilliseconds;
     private Key key;
 
     //yml에서 설정한 시크릿값 가져옴
     public TokenProvider(
         @Value("${jwt.secret}") String secret,
-        @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds) {
+        @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds,
+        @Value("${jwt.refresh-token-validity-in-seconds}") long refreshTokenValidityInSeconds){
         this.secret = secret;
         this.tokenValidityInMilliseconds = tokenValidityInSeconds*1000;
+        this.refreshTokenValidityInMilliseconds = refreshTokenValidityInSeconds*1000;
     }
 
     //빈이 생성이되고 주입을 받은후 secret값을 Base64 Decode하여 Key변수에 할당
@@ -62,6 +65,26 @@ public class TokenProvider implements InitializingBean {
         Date validity = new Date(now + this.tokenValidityInMilliseconds);
         //
         logger.info("Created JWT token for user: {}", authentication.getName());
+        //jwt 토큰을 생성해서 리턴
+        return Jwts.builder() //
+                .setSubject(authentication.getName())//아이디
+                .claim(AUTHORITIES_KEY, authorities)//권한
+                .signWith(key, SignatureAlgorithm.HS512)//알고리즘
+                .setExpiration(validity)//유효기간
+                .compact();
+    }
+    //Refresh 토큰 생성. 유효기간이 다름.
+    public String createRefreshToken(Authentication authentication){
+        //권한들 뽑아오기
+        String authorities = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(","));
+
+        //yaml에서 설정한 토큰 만료시간값으로 설정
+        long now = (new Date()).getTime();
+        Date validity = new Date(now + this.refreshTokenValidityInMilliseconds);
+        //
+        logger.info("Created JWT refresh token for user: {}", authentication.getName());
         //jwt 토큰을 생성해서 리턴
         return Jwts.builder() //
                 .setSubject(authentication.getName())//아이디
