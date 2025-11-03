@@ -9,4 +9,5 @@ public class HelloController {
     public String hello() {
         return "hello";
     }
+    //Jenkins Github Webhook 확인용
 }
