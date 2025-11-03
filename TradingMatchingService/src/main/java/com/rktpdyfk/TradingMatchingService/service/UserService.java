@@ -45,6 +45,8 @@ public class UserService {
 
         return duplicateStatus;
     }
+
+    //회원가입
     @Transactional
     public UserDto signup(UserDto userDto) {
 
